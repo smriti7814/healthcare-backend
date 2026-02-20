@@ -8,11 +8,11 @@ class PatientListCreateView(generics.ListCreateAPIView):
     permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
-        # ✅ sirf logged-in user ke patients
+       
         return Patient.objects.filter(user=self.request.user)
 
     def perform_create(self, serializer):
-        # ✅ patient automatically current user se attach
+       
         serializer.save(user=self.request.user)
 
 
@@ -21,5 +21,5 @@ class PatientDetailView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
-        # ✅ dusre user ke patient pe 404
+       
         return Patient.objects.filter(user=self.request.user)

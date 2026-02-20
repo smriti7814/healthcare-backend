@@ -4,7 +4,7 @@ from django.conf import settings
 
 class Patient(models.Model):
     user = models.ForeignKey(
-        settings.AUTH_USER_MODEL,   # ✅ correct & future-safe
+        settings.AUTH_USER_MODEL,   
         on_delete=models.CASCADE,
         related_name="patients"
     )

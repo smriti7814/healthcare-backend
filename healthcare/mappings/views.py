@@ -27,7 +27,7 @@ class MappingCreateView(APIView):
         patient_id = request.data.get("patient")
         doctor_id = request.data.get("doctor")
 
-        # ownership check
+      
         try:
             patient = Patient.objects.get(
                 id=patient_id,
@@ -105,7 +105,7 @@ class MappingDetailView(APIView):
         patient_id = request.data.get("patient")
         doctor_id = request.data.get("doctor")
 
-        # ✅ patient update allowed BUT only if it belongs to same user
+        
         if patient_id:
             try:
                 Patient.objects.get(
@@ -118,7 +118,6 @@ class MappingDetailView(APIView):
                     status=status.HTTP_403_FORBIDDEN
                 )
 
-        # ✅ doctor update allowed BUT only if it belongs to same user
         if doctor_id:
             try:
                 Doctor.objects.get(

@@ -6,8 +6,8 @@ class Doctor(models.Model):
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
         related_name="doctors",
-        null=True,      # 👈 ADD THIS
-        blank=True     # 👈 ADD THIS
+        null=True,      
+        blank=True     
     )
     name = models.CharField(max_length=100)
     specialization = models.CharField(max_length=100)
